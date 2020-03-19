@@ -9,33 +9,33 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`
     ,
-    // {
-    //   resolve: 'gatsby-source-github',
-    //   options: {
-    //     headers: {
-    //       Authorization: `Bearer 945e41aa81fcdedfcc3e95af4abb505c1fd4eb27`, // https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-    //     },
-    //     queries: [
-    //       `{
-    //         repository(owner: "MartinGras95", name: "issuestest") {
-    //           issues(last: 20, states: OPEN) {
-    //             edges {
-    //               node {
-    //                 id
-    //                 author{
-    //                   url
-    //                 }
-    //                 bodyHTML
-    //                 title
-    //                 url
-    //               }
-    //             }
-    //           }
-    //         }
-    //       }`,
-    //     ],
-    //   },
-    // },
+    {
+      resolve: 'gatsby-source-github',
+      options: {
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_API_KEY}` // https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
+        },
+        queries: [
+          `{
+            repository(owner: "MartinGras95", name: "issuestest") {
+              issues(last: 20, states: OPEN) {
+                edges {
+                  node {
+                    id
+                    author{
+                      url
+                    }
+                    bodyHTML
+                    title
+                    url
+                  }
+                }
+              }
+            }
+          }`,
+        ],
+      },
+    },
   ]
 }
   // 945e41aa81fcdedfcc3e95af4abb505c1fd4eb27
